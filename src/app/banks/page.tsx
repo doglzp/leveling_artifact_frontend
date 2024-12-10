@@ -1,13 +1,14 @@
 "use client";
-import { listQuestionBankVoByPageUsingPost } from "@/api/questionBankController";
 import styles from "./page.module.css";
 import { Button } from "antd";
+import { useSelector } from "react-redux";
+import { RootState } from "@/stores";
 
 export default function Home() {
+	const loginUser = useSelector((state: RootState) => state.loginUser);
+
 	const cliButton = () => {
-		listQuestionBankVoByPageUsingPost({}).then((res) => {
-			console.log(res);
-		});
+		console.log(loginUser);
 	};
 
 	return (
