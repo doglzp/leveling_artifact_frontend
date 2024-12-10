@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { Provider } from "react-redux";
-import "./globals.css";
 import BasicLayout from "@/layouts/BasicLayout";
-import InitLayout from "@/layouts/InitLayout";
+import React from "react";
+import { Provider } from "react-redux";
 import store from "@/stores";
+import AccessLayout from "@/access/AccessLayout";
+import InitLayout from "@/layouts/InitLayout";
+import "./globals.css";
+import "./index.css";
 
 export default function RootLayout({
 	children,
@@ -18,7 +20,9 @@ export default function RootLayout({
 				<AntdRegistry>
 					<Provider store={store}>
 						<InitLayout>
-							<BasicLayout>{children}</BasicLayout>
+							<BasicLayout>
+								<AccessLayout>{children}</AccessLayout>
+							</BasicLayout>
 						</InitLayout>
 					</Provider>
 				</AntdRegistry>

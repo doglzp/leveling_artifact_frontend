@@ -14,6 +14,7 @@ import { GlobalFooter } from "@/components/GlobalFooter";
 import { menus } from "../../../config/menu";
 import { useSelector } from "react-redux";
 import { RootState } from "@/stores";
+import getAccessibleMenus from "@/access/menuAccess";
 
 const SearchInput = () => {
 	return (
@@ -121,7 +122,7 @@ export default function BasicLayout({ children }: Props) {
 					return <GlobalFooter />;
 				}}
 				onMenuHeaderClick={(e) => console.log(e)}
-				menuDataRender={() => menus}
+				menuDataRender={() => getAccessibleMenus(loginUser, menus)}
 				menuItemRender={(item, dom) => (
 					<Link href={item.path || "/"} target={item.target || "_self"}>
 						{dom}
